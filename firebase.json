@@ -1,0 +1,23 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "doppelmail-esoft6sa",
+                    "appId": "1:861994739059:android:08654ab247ea71332e9106",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "doppelmail-esoft6sa",
+                    "configurations": {
+                        "android": "1:861994739059:android:08654ab247ea71332e9106",
+                        "ios": "1:861994739059:ios:60d8d7f3f3bb05902e9106",
+                        "web": "1:861994739059:web:a40eeaf7e356cb7c2e9106"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,8 +1,10 @@
 import 'dart:convert';
 
-import 'package:clone_gmail/src/data/models/email_model.dart';
+import '../models/email_model.dart';
 
 class EmailMapper {
+  // TODO: mapper enum
+
   static EmailEntity fromMap(Map<String, dynamic> map) {
     return EmailEntity(
       sender: map['sender'],

@@ -1,13 +1,13 @@
-class EmailEntity {
-  // sender, description, body?, is_phishin (enum - true, false ou unresolved)
+import 'enum/email_status_enum.dart';
 
+class EmailEntity {
   final String sender;
 
   final String description;
 
   final String? body;
 
-  Enum isPhishing;
+  final EmailStatus isPhishing;
 
   EmailEntity({
     required this.sender,
