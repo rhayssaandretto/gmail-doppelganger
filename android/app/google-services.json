@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "861994739059",
+    "project_id": "doppelmail-esoft6sa",
+    "storage_bucket": "doppelmail-esoft6sa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861994739059:android:08654ab247ea71332e9106",
+        "android_client_info": {
+          "package_name": "com.example.doppemail"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOQrxlrq1Ns0muJkU1EkialKBW8nKJ4fA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
