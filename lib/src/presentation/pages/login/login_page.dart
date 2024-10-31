@@ -1,9 +1,7 @@
-import 'package:clone_gmail/src/presentation/pages/login/widgets/my_button.dart';
-import 'package:clone_gmail/src/presentation/pages/login/widgets/my_textfield_page.dart';
+// import 'package:clone_gmail/src/presentation/pages/login/widgets/my_button.dart';
+// import 'package:clone_gmail/src/presentation/pages/login/widgets/my_textfield_page.dart';
 import 'package:clone_gmail/src/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/square_title.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -128,9 +126,28 @@ class LoginPage extends StatelessWidget {
               //       SquareTile(imagePath: 'assets/images/google.png'),
               // ),
 
+              // ElevatedButton(
+              //   onPressed: () async {
+              //     // Chame a função `signInWithGoogle` e aguarde o retorno
+              //     await AuthService().signInWithGoogle();
+              //   },
+              //   child: const Text('Sign in with Google'),
+              // ),
+
               ElevatedButton(
-                  onPressed: () => print(AuthService().signInWithGoogle),
-                  child: const Text('Sign in with Google')),
+                onPressed: () async {
+                  final userCredential = await AuthService().signInWithGoogle();
+                  if (userCredential != null) {
+                    // O login foi bem-sucedido, você pode navegar para outra tela ou mostrar uma mensagem de sucesso
+                    print(
+                        "Login bem-sucedido: ${userCredential.user?.displayName}");
+                  } else {
+                    // O login falhou ou o usuário não estava autenticado
+                    print("Falha no login.");
+                  }
+                },
+                child: Text('Login com Google2'),
+              ),
 
               // or continue with
 
