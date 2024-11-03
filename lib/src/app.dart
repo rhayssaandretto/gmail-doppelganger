@@ -1,6 +1,7 @@
+import 'package:clone_gmail/src/presentation/pages/email_list/email_list_page.dart';
 import 'package:flutter/material.dart';
 
-import 'presentation/pages/email_list/email_list_page.dart';
+import 'presentation/pages/login/login_page.dart';
 
 class Doppelmail extends StatelessWidget {
   const Doppelmail({super.key});

@@ -3,10 +3,9 @@ import 'dart:convert';
 import '../models/email_model.dart';
 
 class EmailMapper {
-  // TODO: mapper enum
 
-  static EmailEntity fromMap(Map<String, dynamic> map) {
-    return EmailEntity(
+  static EmailModel fromMap(Map<String, dynamic> map) {
+    return EmailModel(
       sender: map['sender'],
       description: map['description'],
       body: map['body'],
@@ -14,7 +13,7 @@ class EmailMapper {
     );
   }
 
-  static Map<String, dynamic> toMap(EmailEntity email) {
+  static Map<String, dynamic> toMap(EmailModel email) {
     return {
       'sender': email.sender,
       'description': email.description,
@@ -23,7 +22,7 @@ class EmailMapper {
     };
   }
 
-  static List<EmailEntity> fromList(String list) {
+  static List<EmailModel> fromList(String list) {
     List<Map<String, dynamic>> emails =
         List<Map<String, dynamic>>.from(jsonDecode(list));
 
