@@ -3,7 +3,6 @@ import 'dart:convert';
 import '../models/email_model.dart';
 
 class EmailMapper {
-  // TODO: mapper enum
 
   static EmailModel fromMap(Map<String, dynamic> map) {
     return EmailModel(

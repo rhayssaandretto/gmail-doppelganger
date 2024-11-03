@@ -1,5 +1,3 @@
-import 'enum/email_status_enum.dart';
-
 class EmailModel {
   final String sender;
 
@@ -7,7 +5,7 @@ class EmailModel {
 
   final String? body;
 
-  final EmailStatus isPhishing;
+  final bool isPhishing;
 
   EmailModel({
     required this.sender,
