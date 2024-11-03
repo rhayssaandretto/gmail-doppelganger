@@ -1,22 +1,17 @@
+import 'package:clone_gmail/src/presentation/pages/email_list/email_list_page.dart';
 import 'package:flutter/material.dart';
 
-/// The Widget that configures your application.
+import 'presentation/pages/login/login_page.dart';
+
 class Doppelmail extends StatelessWidget {
   const Doppelmail({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Doppelmail',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Doppelmail'),
-          backgroundColor: Colors.pink[300],
-        ),
-        body: const Center(
-          child: Text('Doppelmail'),
-        ),
-      ),
+      home: EmailListPage(),
     );
   }
 }
