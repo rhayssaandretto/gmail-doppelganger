@@ -1,25 +1,23 @@
-import 'package:clone_gmail/src/presentation/pages/email_list/email_list_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../../services/auth/auth_service.dart';
-import 'widgets/my_button.dart';
-import 'widgets/my_textfield_page.dart';
+import '../../presentation/pages/login/widgets/my_button.dart';
+import '../../presentation/pages/login/widgets/my_textfield_page.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final Function()? onTap;
-
-  const LoginPage({super.key, this.onTap});
+  const RegisterPage({super.key, required this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
-  void signUserIn() async {
+  void signUserUp() async {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -30,26 +28,27 @@ class _LoginPageState extends State<LoginPage> {
       },
     );
 
+    if (passwordController.text != confirmPasswordController.text) {
+      Navigator.pop(context);
+
+      showErrorMessage('Passwords do not match');
+      return;
+    }
+
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
-
       if (!mounted) {
         return; //verifica se o widget está montado ou não antes de chamar o Navigator
       }
 
       Navigator.pop(context);
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => EmailListPage()),
-      );
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
 
-      String message = AuthService().getErrorMessage(e.code);
-
-      showErrorMessage(message);
+      showErrorMessage(e.message ?? 'An error occurred');
     }
   }
 
@@ -74,6 +73,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
@@ -89,21 +96,17 @@ class _LoginPageState extends State<LoginPage> {
                   size: 50,
                 ),
                 const SizedBox(height: 25),
-                Padding(
-                  padding: const EdgeInsets.all(25),
-                  child: Text(
-                    'Você voltou! Estava começando a achar que você caiu em uma armadilha de phishing! (•᷄ࡇ•᷅ )',
-                    style: TextStyle(
-                      color: Colors.grey[700],
-                      fontSize: 16,
-                    ),
-                    textAlign: TextAlign.center,
+                Text(
+                  'Vamos criar uma conta para você!',
+                  style: TextStyle(
+                    color: Colors.grey[700],
+                    fontSize: 16,
                   ),
                 ),
-                const SizedBox(height: 35),
+                const SizedBox(height: 25),
                 MyTextField(
                   controller: emailController,
-                  hintText: 'E-mail',
+                  hintText: 'Email',
                   obscureText: false,
                 ),
                 const SizedBox(height: 10),
@@ -112,12 +115,18 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: 'Senha',
                   obscureText: true,
                 ),
+                const SizedBox(height: 10),
+                MyTextField(
+                  controller: confirmPasswordController,
+                  hintText: 'Confirmar Senha',
+                  obscureText: true,
+                ),
                 const SizedBox(height: 25),
                 Padding(
                   padding: const EdgeInsets.all(25),
                   child: MyButton(
-                    text: 'Entrar',
-                    onTap: signUserIn,
+                    text: 'Cadastrar',
+                    onTap: signUserUp,
                   ),
                 ),
                 const SizedBox(height: 50),
@@ -125,14 +134,14 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Não é um membro?',
+                      'Já é um membro?',
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                     const SizedBox(width: 4),
                     GestureDetector(
                       onTap: widget.onTap,
                       child: const Text(
-                        'Registre-se agora',
+                        'Faça login agora',
                         style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,
