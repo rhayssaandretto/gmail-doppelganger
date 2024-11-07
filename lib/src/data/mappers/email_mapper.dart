@@ -9,7 +9,7 @@ class EmailMapper {
       sender: map['sender'],
       description: map['description'],
       body: map['body'],
-      isPhishing: map['is_phishing'],
+      isPhishing: map['is_phishing'] as bool,
     );
   }
 
