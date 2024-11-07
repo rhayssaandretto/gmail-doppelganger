@@ -1,39 +1,34 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../../../core/widgets/list.dart';
-import '../../../services/auth/login_or_register.dart';
+import 'package:clone_gmail/src/services/auth/auth_service.dart';
+import '../../../services/auth/auth_page.dart';
+import 'widgets/email_list.dart';
 
 class EmailListPage extends StatelessWidget {
-  EmailListPage({super.key});
+  const EmailListPage({super.key});
 
-  final user = FirebaseAuth.instance.currentUser!;
-
-  void signUserOut(BuildContext context) {
-    try {
-      FirebaseAuth.instance.signOut();
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const LoginOrRegisterPage()),
-      );
-      debugPrint("Usuário deslogado com sucesso!");
-    } catch (e) {
-      debugPrint("Erro ao deslogar: $e");
-    }
+  void signUserOut(BuildContext context) async {
+    await AuthService().signOut();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const AuthPage(),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pink[300],
+        title: const Text('Caixa de entrada'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout_rounded),
+            icon: const Icon(Icons.logout),
             onPressed: () => signUserOut(context),
-          )
+          ),
         ],
       ),
-      body: const ListGeneric(),
+      body: const EmailList(),
     );
   }
 }

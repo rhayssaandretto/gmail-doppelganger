@@ -1,61 +1,61 @@
 [
     {
         "sender": "Alice Johnson",
-        "subject": "Reunião de Projeto",
+        "description": "Reunião de Projeto",
         "body": "Oi, vamos discutir os detalhes do próximo sprint na reunião com todos os membros da equipe. A presença de todos é fundamental para alinharmos as expectativas e definirmos as próximas etapas do projeto.",
         "is_phishing": false
     },
     {
         "sender": "Banco XPTO",
-        "subject": "Sua conta foi comprometida!",
+        "description": "Sua conta foi comprometida!",
         "body": "Clique aqui para proteger sua conta antes que seja tarde demais. Isso é uma mensagem urgente que requer sua atenção imediata. Ignorar esta mensagem pode resultar em perda de acesso à sua conta.",
         "is_phishing": true
     },
     {
         "sender": "Promoções Incríveis",
-        "subject": "Ganhe um iPhone grátis!",
+        "description": "Ganhe um iPhone grátis!",
         "body": "Parabéns! Você ganhou um iPhone! Para reivindicar seu prêmio, clique no link abaixo e preencha suas informações. Essa é uma oferta exclusiva por tempo limitado.",
         "is_phishing": true
     },
     {
         "sender": "Suporte Técnico",
-        "subject": "Atualização de Segurança Necessária",
+        "description": "Atualização de Segurança Necessária",
         "body": "Sua conta foi comprometida. Por favor, atualize suas informações de segurança clicando neste link. Esta é uma medida de segurança para garantir que sua conta permaneça protegida.",
         "is_phishing": true
     },
     {
         "sender": "Banco Central",
-        "subject": "Ação Necessária: Confirme Seu Cadastro",
+        "description": "Ação Necessária: Confirme Seu Cadastro",
         "body": "Por favor, confirme seu cadastro no Banco Central para evitar bloqueio de conta. Clique no link a seguir para validar suas informações e garantir a continuidade dos serviços.",
         "is_phishing": true
     },
     {
         "sender": "Relatórios Financeiros",
-        "subject": "Relatório do último trimestre",
+        "description": "Relatório do último trimestre",
         "body": "Prezado, aqui está o relatório financeiro do último trimestre que você solicitou. Anexado a este email, você encontrará todos os detalhes das receitas e despesas.",
         "is_phishing": false
     },
     {
         "sender": "Notícias do Mundo",
-        "subject": "Últimas notícias sobre tecnologia",
+        "description": "Últimas notícias sobre tecnologia",
         "body": "Confira as últimas inovações no setor de tecnologia que podem impactar sua carreira. Nesta edição, falamos sobre inteligência artificial, novas startups e tendências de mercado.",
         "is_phishing": false
     },
     {
         "sender": "Vendas Online",
-        "subject": "Promoção imperdível: 50% de desconto!",
+        "description": "Promoção imperdível: 50% de desconto!",
         "body": "Aproveite nossa oferta especial de 50% de desconto em todos os produtos! Clique aqui para mais informações e não perca a oportunidade de economizar muito.",
         "is_phishing": true
     },
     {
         "sender": "Time de Suporte",
-        "subject": "Problemas com sua conta",
+        "description": "Problemas com sua conta",
         "body": "Detectamos atividades suspeitas em sua conta. Por favor, faça login imediatamente para verificar. Ignorar essa mensagem pode resultar em bloqueio da conta.",
         "is_phishing": true
     },
     {
         "sender": "Recuperação de Senha",
-        "subject": "Solicitação de redefinição de senha",
+        "description": "Solicitação de redefinição de senha",
         "body": "Recebemos um pedido para redefinir sua senha. Se você não fez esse pedido, ignore este email. Caso contrário, clique no link abaixo para redefinir sua senha de forma segura.",
         "is_phishing": false
     }
