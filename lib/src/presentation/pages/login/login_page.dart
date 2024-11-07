@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
 
       Navigator.pop(context);
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => EmailListPage()),
+        MaterialPageRoute(builder: (context) => const EmailListPage()),
       );
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
